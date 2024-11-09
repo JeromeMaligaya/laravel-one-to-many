@@ -55,15 +55,6 @@
                          {{ $message }}
                     </div>
                     @enderror
-                    <div class="mb-3">
-                      <label for="languages" class="form-label">Languages used:</label>
-                      <input type="text" class="form-control" id="languages" name="languages" value="{{ old('languages', $project->languages) }}">
-                    </div>
-                    @error('languages')
-                    <div class="alert alert-warning">
-                         {{ $message }}
-                    </div>
-                    @enderror
 
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-warning">Reset</button>

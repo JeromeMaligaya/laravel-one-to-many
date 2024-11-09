@@ -25,7 +25,6 @@ class StoreProjectRequest extends FormRequest
             "name" => ["required", "string", "min:3", "max:255"],
             "date" => ["required", "date"],
             "description" => ["required", "string", "min:3", "max:255"],
-            "languages" => ["required", "string", "min:3", "max:255"],
         ];
     }
 
@@ -44,11 +43,6 @@ class StoreProjectRequest extends FormRequest
             "description.string" => "The 'Description' field must be a string.",
             "description.min" => "The 'Description' field must be at least 3 characters.",
             "description.max" => "The 'Description' field cannot exceed 255 characters.",
-
-            "languages.required" => "The 'Languages Used' field is required.",
-            "languages.string" => "The 'Languages Used' field must be a string.",
-            "languages.min" => "The 'Languages Used' field must be at least 3 characters.",
-            "languages.max" => "The 'Languages Used' field cannot exceed 255 characters.",
         ];
     }
 }

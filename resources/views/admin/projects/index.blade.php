@@ -24,7 +24,7 @@
                             <div class="mb-2">
                                 <h5 class="mb-1">Languages used: </h5>
                                 <p class="card-text">
-                                {{ $project->languages}}
+                                    {{-- type --}}
                                 </p>
                             </div>
                             <div class="mb-2">
