@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -20,11 +21,76 @@ class ProjectSeeder extends Seeder
     // $table->timestamps();
     public function run(Faker $faker): void
     {
-        for ($i = 0; $i < 30; $i++) {
+        $types = Type::all()->pluck("id");
+
+        $projects = [
+            [
+                "name" => "html-css-booleaner",
+                "date" => "2024-07-01",
+                "description" => "/",
+                "type_id" => 2,
+            ],
+            [
+                "name" => "htmlcss-discord",
+                "date" => "2014-07-08",
+                "description" => "/",
+                "type_id" => 2,
+            ],
+            [
+                "name" => "html-css-spotifyweb",
+                "date" => "2024-07-19",
+                "description" => "/",
+                "type_id" => 2,
+            ],
+            [
+                "name" => "vue-boolzapp",
+                "date" => "2024-09-06",
+                "description" => "/",
+                "type_id" => 2,
+            ],
+            [
+                "name" => "vite-yu-gi-oh",
+                "date" => "2024-09-18",
+                "description" => "/",
+                "type_id" => 4,
+            ],
+            [
+                "name" => "vite-boolflix",
+                "date" => "2024-09-25",
+                "description" => "/",
+                "type_id" => 4,
+            ],
+            [
+                "name" => "php-hotel",
+                "date" => "2024-10-03",
+                "description" => "/",
+                "type_id" => 4,
+            ],
+            [
+                "name" => "laravel-dc-comics",
+                "date" => "2024-09-29",
+                "description" => "/",
+                "type_id" => 3,
+            ],
+            [
+                "name" => "laravel-auth",
+                "date" => "2014-11-04",
+                "description" => "/",
+                "type_id" => 1,
+            ],
+            [
+                "name" => "laravel-one-to-many",
+                "date" => "2024-11-07",
+                "description" => "/",
+                "type_id" => 1,
+            ],
+        ];
+        foreach ($projects as $singleProject) {
             $project = new Project();
-            $project->name = $faker->unique()->words(3, true);
-            $project->date = $faker->dateTimeBetween('2023-08php artisan migrate:fresh --seed-01', '2023-11-30')->format('Y-m-d');
-            $project->description = $faker->paragraph();
+            $project->name = $singleProject['name'];
+            $project->date = $singleProject['date'];
+            $project->description = $singleProject['description'];
+            $project->type_id = $singleProject['type_id'];
             $project->save();
         }
     }
