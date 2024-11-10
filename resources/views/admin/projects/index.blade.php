@@ -19,17 +19,27 @@
                 <li class="col-4 g-3">
                     <div id="project-card" class="card pt-2">
                         <div class="card-body">
-                            <h5 class="card-title">Name project: {{ $project->name }}</h5>
-                            <h5>Started on: {{ $project->date }}</h5>
                             <div class="mb-2">
-                                <h5 class="mb-1">Languages used: </h5>
-                                <p class="card-text">
-                                    {{-- type --}}
+                                <h5 class="mb-1">Name project: </h5>
+                                <p class="card-text fw-bolder">
+                                    {{ $project->name }}
+                                </p>
+                            </div>
+                            <div class="mb-2">
+                                <h5 class="mb-1">Started on: </h5>
+                                <p class="card-text fw-bolder">
+                                    {{ $project->date }}
+                                </p>
+                            </div>
+                            <div class="mb-2">
+                                <h5 class="mb-1">Type: </h5>
+                                <p class="card-text fw-bolder">
+                                    {{ $project->type->name}}
                                 </p>
                             </div>
                             <div class="mb-2">
                                 <h5 class="mb-1">Description:</h5>
-                                <p class="card-text">
+                                <p class="card-text fw-bolder">
                                     {{ $project->description}}
                                 </p>
                             </div>
