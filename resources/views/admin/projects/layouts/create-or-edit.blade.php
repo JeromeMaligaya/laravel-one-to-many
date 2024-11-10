@@ -38,7 +38,7 @@
                        </div>
                     @enderror
                     <div class="mb-3">
-                      <label for="date" class="form-label">Date started:</label>
+                      <label for="date" class="form-label">Date started: (yyyy-mm-dd)</label>
                       <input type="text" class="form-control" id="date" name="date" value="{{ old('date', $project->date) }}">
                     </div>
                     @error('date')
@@ -46,6 +46,20 @@
                          {{ $message }}
                     </div>
                     @enderror
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type:</label>
+                        <select name="type_id" id="type" class="form-control">
+                            <option disabled>choose a type here</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id}}">
+                                    {{ $type->name }}
+                                    @if($type->id == old("type_id", $project->type_id))
+                                    selected
+                                @endif
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description:</label>
                         <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description', $project->description) }}</textarea>
