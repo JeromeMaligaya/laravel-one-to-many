@@ -24,6 +24,7 @@ class StoreProjectRequest extends FormRequest
         return [
             "name" => ["required", "string", "min:3", "max:255"],
             "date" => ["required", "date"],
+            "type_id" => ["required", "numeric", "integer", "exists:types,id"],
             "description" => ["required", "string", "min:3", "max:255"],
         ];
     }
@@ -38,6 +39,8 @@ class StoreProjectRequest extends FormRequest
 
             "date.required" => "The 'Start Date' field is required.",
             "date.date" => "The 'Start Date' field must be a valid date.",
+
+            "type_id.required" => "The 'Type' field is required.",
 
             "description.required" => "The 'Description' field is required.",
             "description.string" => "The 'Description' field must be a string.",
