@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -25,8 +26,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $types = Type::all();
         $project = new Project();
-        return view("admin.projects.create", compact("project"));
+        return view("admin.projects.create", compact("project", "types"));
     }
 
     /**
@@ -52,7 +54,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact("project"));
+        $types = Type::all();
+        return view('admin.projects.edit', compact("project", "types"));
     }
 
     /**
